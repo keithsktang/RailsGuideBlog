@@ -1,0 +1,36 @@
+<div class="container">
+  <div class='row col-xs-12'>
+    <h1>Listing articles</h1>
+  </div>
+  <div class='row col-xs-12'>
+    <%= link_to 'New article', new_article_path %>
+  </div>
+  <p>
+  <div class = "row">
+    <div id ="square" class = 'col-xs-2'></div>
+    <div id ="square" class = 'col-xs-2'></div>
+    <div id ="square" class = 'col-xs-2'></div>
+    <div id ="square" class = 'col-xs-2'></div>
+    <div id ="square" class = 'col-xs-2'></div>
+    <div id ="square" class = 'col-xs-2'></div>
+  </div>
+  <div class='row col-xs-12'>
+      <table>
+        <tr>
+          <th<span class="glyphicon glyphicon-stats">Title</span></th>
+          <th>Text</th>
+        </tr>
+
+        <% @articles.each do |article| %>
+        <tr>
+            <td><%= article.title %></td>
+            <td><%= article.text %></td>
+            <td><%= link_to 'Show', article_path(article) %></td>
+            <td><%= link_to 'Edit', edit_article_path(article) %></td>
+            <td><%= link_to 'Destroy', article_path(article),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </table>
+  </div>
